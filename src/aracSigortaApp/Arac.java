@@ -15,12 +15,8 @@ import java.util.Scanner;
 
 public class Arac {
 
-
     public String type;
-
     public int prim;
-
-
     //5.prim hesaplama
 
     public void countPrim(int term) {

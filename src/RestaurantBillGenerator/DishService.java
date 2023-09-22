@@ -12,10 +12,7 @@ public class DishService {
 
     //5-a-yiyecekleri oluşturup listeye ekleme
     public DishService(){
-
         fillDishList();
-
-
     }
 
     private void fillDishList() {
@@ -29,19 +26,58 @@ public class DishService {
         Dish dish8=new Dish(301,"Kola",35.0);
         Dish dish9=new Dish(302,"Çay",15.0);
         Dish dish10=new Dish(303,"Su",7.5);
-        dishList.add(dish1);
-        dishList.add(dish2);
-        dishList.add(dish3);
-        dishList.add(dish4);
-        dishList.add(dish5);
-        dishList.add(dish6);
-        dishList.add(dish7);
-        dishList.add(dish8);
-        dishList.add(dish9);
-        dishList.add(dish10);
+        this.dishList.add(dish1);
+        this.dishList.add(dish2);
+        this.dishList.add(dish3);
+        this.dishList.add(dish4);
+        this.dishList.add(dish5);
+        this.dishList.add(dish6);
+        this.dishList.add(dish7);
+        this.dishList.add(dish8);
+        this.dishList.add(dish9);
+        this.dishList.add(dish10);
     }
 
-    //....
+    //6-yemek menüsünü gösterme
+    public void showMenu(){
+        System.out.println("           *** Lezzetlerimiz ***                ");
+        System.out.printf("%-3s    %-20s    %-6s     \n","Kod","Adı","Fiyat");
+        System.out.printf("%-3s    %-20s    %-6s     \n","***","****","************");
+
+        for (Dish dish:dishList){
+
+            System.out.printf("%-3s    %-20s    %-6s  Lira\n",dish.getCode(),dish.getName(),dish.getPrice());
+
+        }
+    }
+
+    //12-kodu verilen yemeği listeden bulalım
+    public Dish findDishByCode(int code){//500
+        if (code==0){
+            System.out.println("Ana menüye yönlendiriliyorsunuz.");
+        }else {
+            for (Dish dish:dishList){
+                if (dish.getCode()==code){
+                    return dish;//metod biter
+                }
+            }
+            System.out.println("Ürün bulunamadı!");
+        }
+        return null;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

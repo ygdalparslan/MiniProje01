@@ -22,6 +22,24 @@ Proje: Restaurant Fiş Üretme Uygulaması(BillGenerator)
          Hesap oluşturma: Tutarları ile birlikte tüm siparişleri ve
                           toplam tutarı gösteren bir hesap fişi yazdırılsın.
 */
+
+
+/*
+ÖDEV: Şirket büyüdü, cafe kısmı açıldı.
+      Aynı uygulama cafe kısmında da kullanılsın.
+      Cafede farklı menü var.
+        Dish dish1=new Dish(401,"Tiramisu",35.0);
+        Dish dish2=new Dish(402,"Dondurma",25.0);
+        Dish dish3=new Dish(402,"Profiterol",25.0);
+        Dish dish4=new Dish(403,"Kahve",17.5);
+        Dish dish5=new Dish(404,"Çay",7.5);
+        Dish dish6=new Dish(405,"Portakal Suyu",25.5);
+      Uygulama başladığında restaurant/cafe seçeneği olsun.
+
+*/
+
+
+
 public class RestaurantBillGenerator {
 
     public static void main(String[] args) {
@@ -33,6 +51,11 @@ public class RestaurantBillGenerator {
     public static void getSelectionMenu(){
         Scanner inp=new Scanner(System.in);
         //3-yiyecekler için Class oluşturalım:Dish
+
+        //7-servis objelerini oluşturalım
+        DishService dishService=new DishService();//listeye yemekler eklendi
+        OrderService orderService=new OrderService();
+
 
 
 
@@ -46,21 +69,24 @@ public class RestaurantBillGenerator {
             System.out.println("3-Sipariş İptal");
             System.out.println("4-Hesap Oluştur");
             System.out.println("0-ÇIKIŞ");
+            System.out.println("Seçiminiz : ");
             select=inp.nextInt();
             System.out.println("------------------------------------------------");
 
             switch (select){
                 case 1:
-                    //menü
+                    dishService.showMenu();
                     break;
                 case 2:
                     //sipariş gir
+                    orderService.createOrder(dishService);
                     break;
                 case 3:
                     //sipariş iptal
                     break;
                 case 4:
-                    //hesap
+                    //hesap oluşturalım
+                    orderService.printBill();
                     break;
                 case 0:
                     System.out.println("İyi günler dileriz.");

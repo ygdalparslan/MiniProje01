@@ -1,4 +1,4 @@
-package RestaurantBillGenerator;
+package RestaurantCafeBillGenerator;
 
 import java.util.ArrayList;
 import java.util.List;

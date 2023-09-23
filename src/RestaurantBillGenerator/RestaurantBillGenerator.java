@@ -83,6 +83,7 @@ public class RestaurantBillGenerator {
                     break;
                 case 3:
                     //sipariş iptal
+                    orderService.deleteOrder();
                     break;
                 case 4:
                     //hesap oluşturalım
